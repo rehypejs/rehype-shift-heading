@@ -78,7 +78,7 @@ Use of `rehype-shift-heading` is safe.
 
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — Add `id` attributes to headings
-*   [`rehype-format`](https://github.com/rehypejs/rehype-autolink-headings)
+*   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
     — Add links to headings in HTML
 
 ## Contribute
