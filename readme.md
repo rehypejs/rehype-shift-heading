@@ -8,45 +8,89 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**rehype**][rehype] plugin to change the rank (depth, level) of headings.
+**[rehype][]** plugin to change the rank of headings.
 
 ## Contents
 
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
 *   [Install](#install)
 *   [Use](#use)
 *   [API](#api)
     *   [`unified().use(rehypeShiftHeading, options)`](#unifieduserehypeshiftheading-options)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
 *   [Security](#security)
 *   [Related](#related)
 *   [Contribute](#contribute)
 *   [License](#license)
 
+## What is this?
+
+This package is a [unified][] ([rehype][]) plugin to change the rank (also known
+as depth or level) of headings (so `<h1>` through `<h6>`).
+You can increase (by passing a positive number) or decrease (negative number)
+all headings.
+
+**unified** is a project that transforms content with abstract syntax trees
+(ASTs).
+**rehype** adds support for HTML to unified.
+**hast** is the HTML AST that rehype uses.
+This is a rehype plugin that changes headings in the tree.
+
+## When should I use this?
+
+This plugin is particularly useful when merging documents into each other.
+For example, when injecting a `readme.md` that starts with an `<h1>` into a
+site that uses an `<h1>` for the title of the website.
+This plugin can be used to shift all the headings inside the readme.
+
+This plugin is built on [`hast-util-shift-heading`][hast-util-shift-heading],
+which does the work on syntax trees.
+rehype focusses on making it easier to transform content by abstracting such
+internals away.
+
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 
 ```sh
 npm install rehype-shift-heading
 ```
 
+In Deno with [Skypack][]:
+
+```js
+import rehypeShiftHeading from 'https://cdn.skypack.dev/rehype-shift-heading@1?dts'
+```
+
+In browsers with [Skypack][]:
+
+```html
+<script type="module">
+  import rehypeShiftHeading from 'https://cdn.skypack.dev/rehype-shift-heading@1?min'
+</script>
+```
+
 ## Use
 
-Say `example.js` looks as follows:
+Say our module `example.js` looks as follows:
 
 ```js
 import {rehype} from 'rehype'
 import rehypeShiftHeading from 'rehype-shift-heading'
 
-rehype()
-  .data('settings', {fragment: true})
-  .use(rehypeShiftHeading, {shift: 1})
-  .process('<h1>Alpha!</h1>')
-  .then((file) => {
-    console.log(String(file))
-  })
+main()
+
+async function main() {
+  const file = await rehype()
+    .data('settings', {fragment: true})
+    .use(rehypeShiftHeading, {shift: 1})
+    .process('<h1>Alpha!</h1>')
+
+  console.log(String(file))
+}
 ```
 
 Now, running `node example` yields:
@@ -65,10 +109,30 @@ The default export is `rehypeShiftHeading`.
 rehype plugin to change the rank (depth, level) of headings.
 Does not shift past `h1` and `h6`.
 
-##### `options.shift`
+##### `options`
+
+Configuration (optional).
+
+###### `options.shift`
 
 Number to shift headings (`number`, required).
 Can be negative to decrease heading levels.
+
+## Types
+
+This package is fully typed with [TypeScript][].
+It exports an `Options` type, which specifies the interface of the accepted
+options.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
+
+This plugin works with `rehype-parse` version 1+, `rehype-stringify` version 1+,
+`rehype` version 1+, and `unified` version 4+.
 
 ## Security
 
@@ -77,9 +141,9 @@ Use of `rehype-shift-heading` is safe.
 ## Related
 
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
-    — Add `id` attributes to headings
+    — add `id`s to headings
 *   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
-    — Add links to headings in HTML
+    — add links to headings
 
 ## Contribute
 
@@ -125,6 +189,8 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[skypack]: https://www.skypack.dev
+
 [health]: https://github.com/rehypejs/.github
 
 [contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
@@ -137,4 +203,10 @@ abide by its terms.
 
 [author]: https://wooorm.com
 
+[typescript]: https://www.typescriptlang.org
+
+[unified]: https://github.com/unifiedjs/unified
+
 [rehype]: https://github.com/rehypejs/rehype
+
+[hast-util-shift-heading]: https://github.com/syntax-tree/hast-util-shift-heading
