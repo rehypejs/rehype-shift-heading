@@ -1,6 +1,6 @@
 {
   "name": "rehype-shift-heading",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "rehype plugin to change the rank (depth, level) of headings",
   "license": "MIT",
   "keywords": [
