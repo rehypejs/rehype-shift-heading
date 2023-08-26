@@ -4,16 +4,20 @@ import {rehype} from 'rehype'
 import rehypeShiftHeading from './index.js'
 
 test('rehypeShiftHeading', async function (t) {
-  await t.test('should throw w/o `options.shift`', async function () {
-    try {
-      // @ts-expect-error: check how missing `options.shift` is handled.
-      await rehype().use(rehypeShiftHeading).process('<h2>a</h2>')
-    } catch (error) {
-      assert.match(String(error), /Error: Missing required `shift` in options/)
-      return
-    }
+  await t.test('should not shift w/o `options`', async function () {
+    assert.equal(
+      String(await rehype().use(rehypeShiftHeading).process('<h2>a</h2>')),
+      '<html><head></head><body><h2>a</h2></body></html>'
+    )
+  })
 
-    assert.fail()
+  await t.test('should not shift w/ `0`', async function () {
+    assert.equal(
+      String(
+        await rehype().use(rehypeShiftHeading, {shift: 0}).process('<h2>a</h2>')
+      ),
+      '<html><head></head><body><h2>a</h2></body></html>'
+    )
   })
 
   await t.test('should shift (positive)', async function () {
