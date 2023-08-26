@@ -4,6 +4,12 @@ import {rehype} from 'rehype'
 import rehypeShiftHeading from './index.js'
 
 test('rehypeShiftHeading', async function (t) {
+  await t.test('should expose the public api', async function () {
+    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
+      'default'
+    ])
+  })
+
   await t.test('should not shift w/o `options`', async function () {
     assert.equal(
       String(await rehype().use(rehypeShiftHeading).process('<h2>a</h2>')),
