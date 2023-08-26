@@ -17,7 +17,8 @@
 *   [Install](#install)
 *   [Use](#use)
 *   [API](#api)
-    *   [`unified().use(rehypeShiftHeading, options)`](#unifieduserehypeshiftheading-options)
+    *   [`unified().use(rehypeShiftHeading[, options])`](#unifieduserehypeshiftheading-options)
+    *   [`Options`](#options)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
 *   [Security](#security)
@@ -52,8 +53,8 @@ internals away.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
+This package is [ESM only][esm].
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install rehype-shift-heading
@@ -79,7 +80,7 @@ Say our module `example.js` looks as follows:
 
 ```js
 import {rehype} from 'rehype'
-import rehypeShiftHeading from './index.js'
+import rehypeShiftHeading from 'rehype-shift-heading'
 
 const file = await rehype()
   .data('settings', {fragment: true})
@@ -98,34 +99,46 @@ Now, running `node example` yields:
 ## API
 
 This package exports no identifiers.
-The default export is `rehypeShiftHeading`.
+The default export is [`rehypeShiftHeading`][api-rehype-shift-heading].
 
-### `unified().use(rehypeShiftHeading, options)`
+### `unified().use(rehypeShiftHeading[, options])`
 
-rehype plugin to change the rank (depth, level) of headings.
+Change the rank (depth, level) of headings.
+
 Does not shift past `h1` and `h6`.
 
-##### `options`
+###### Parameters
 
-Configuration (optional).
+*   `options` ([`Options`][api-options], optional)
+    — configuration
 
-###### `options.shift`
+###### Returns
 
-Number to shift headings (`number`, required).
-Can be negative to decrease heading levels.
+Transform ([`Transformer`][unified-transformer]).
+
+### `Options`
+
+Configuration (TypeScript type).
+
+###### Fields
+
+*   `shift` (`number`, default: `0`)
+    — number to shift headings; can be negative to decrease heading levels
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports an `Options` type, which specifies the interface of the accepted
-options.
+It exports the additional type [`Options`][api-options].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `rehype-shift-heading@^1`,
+compatible with Node.js 12.
 
 This plugin works with `rehype-parse` version 1+, `rehype-stringify` version 1+,
 `rehype` version 1+, and `unified` version 4+.
@@ -169,9 +182,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/rehype-shift-heading
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/rehype-shift-heading.svg
+[size-badge]: https://img.shields.io/bundlejs/size/rehype-shift-heading
 
-[size]: https://bundlephobia.com/result?p=rehype-shift-heading
+[size]: https://bundlejs.com/?q=rehype-shift-heading
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -184,6 +197,8 @@ abide by its terms.
 [chat]: https://github.com/rehypejs/rehype/discussions
 
 [npm]: https://docs.npmjs.com/cli/install
+
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
 
@@ -201,8 +216,14 @@ abide by its terms.
 
 [typescript]: https://www.typescriptlang.org
 
-[unified]: https://github.com/unifiedjs/unified
-
 [rehype]: https://github.com/rehypejs/rehype
 
+[unified]: https://github.com/unifiedjs/unified
+
+[unified-transformer]: https://github.com/unifiedjs/unified?tab=readme-ov-file#transformer
+
 [hast-util-shift-heading]: https://github.com/syntax-tree/hast-util-shift-heading
+
+[api-options]: #options
+
+[api-rehype-shift-heading]: #unifieduserehypeshiftheading-options
