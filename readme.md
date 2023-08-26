@@ -79,18 +79,14 @@ Say our module `example.js` looks as follows:
 
 ```js
 import {rehype} from 'rehype'
-import rehypeShiftHeading from 'rehype-shift-heading'
+import rehypeShiftHeading from './index.js'
 
-main()
+const file = await rehype()
+  .data('settings', {fragment: true})
+  .use(rehypeShiftHeading, {shift: 1})
+  .process('<h1>Alpha!</h1>')
 
-async function main() {
-  const file = await rehype()
-    .data('settings', {fragment: true})
-    .use(rehypeShiftHeading, {shift: 1})
-    .process('<h1>Alpha!</h1>')
-
-  console.log(String(file))
-}
+console.log(String(file))
 ```
 
 Now, running `node example` yields:
