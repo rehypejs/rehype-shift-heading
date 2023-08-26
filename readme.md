@@ -63,14 +63,14 @@ npm install rehype-shift-heading
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import rehypeShiftHeading from 'https://esm.sh/rehype-shift-heading@1'
+import rehypeShiftHeading from 'https://esm.sh/rehype-shift-heading@2'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import rehypeShiftHeading from 'https://esm.sh/rehype-shift-heading@1?bundle'
+  import rehypeShiftHeading from 'https://esm.sh/rehype-shift-heading@2?bundle'
 </script>
 ```
 
