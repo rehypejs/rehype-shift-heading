@@ -204,11 +204,11 @@ abide by its terms.
 
 [health]: https://github.com/rehypejs/.github
 
-[contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
+[contributing]: https://github.com/rehypejs/.github/blob/main/contributing.md
 
-[support]: https://github.com/rehypejs/.github/blob/HEAD/support.md
+[support]: https://github.com/rehypejs/.github/blob/main/support.md
 
-[coc]: https://github.com/rehypejs/.github/blob/HEAD/code-of-conduct.md
+[coc]: https://github.com/rehypejs/.github/blob/main/code-of-conduct.md
 
 [license]: license
 
@@ -220,7 +220,7 @@ abide by its terms.
 
 [unified]: https://github.com/unifiedjs/unified
 
-[unified-transformer]: https://github.com/unifiedjs/unified?tab=readme-ov-file#transformer
+[unified-transformer]: https://github.com/unifiedjs/unified#transformer
 
 [hast-util-shift-heading]: https://github.com/syntax-tree/hast-util-shift-heading
 
