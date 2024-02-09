@@ -153,6 +153,8 @@ Use of `rehype-shift-heading` is safe.
     — add `id`s to headings
 *   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
     — add links to headings
+*   [`rehype-headings-normalize`](https://github.com/hashbite/rehype-headings-normalize)
+    — normalizes headlines by shifting to a minimum level and closing gaps
 
 ## Contribute
 
