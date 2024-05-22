@@ -12,19 +12,19 @@
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Install](#install)
-*   [Use](#use)
-*   [API](#api)
-    *   [`unified().use(rehypeShiftHeading[, options])`](#unifieduserehypeshiftheading-options)
-    *   [`Options`](#options)
-*   [Types](#types)
-*   [Compatibility](#compatibility)
-*   [Security](#security)
-*   [Related](#related)
-*   [Contribute](#contribute)
-*   [License](#license)
+* [What is this?](#what-is-this)
+* [When should I use this?](#when-should-i-use-this)
+* [Install](#install)
+* [Use](#use)
+* [API](#api)
+  * [`unified().use(rehypeShiftHeading[, options])`](#unifieduserehypeshiftheading-options)
+  * [`Options`](#options)
+* [Types](#types)
+* [Compatibility](#compatibility)
+* [Security](#security)
+* [Related](#related)
+* [Contribute](#contribute)
+* [License](#license)
 
 ## What is this?
 
@@ -109,8 +109,8 @@ Does not shift past `h1` and `h6`.
 
 ###### Parameters
 
-*   `options` ([`Options`][api-options], optional)
-    — configuration
+* `options` ([`Options`][api-options], optional)
+  — configuration
 
 ###### Returns
 
@@ -122,8 +122,8 @@ Configuration (TypeScript type).
 
 ###### Fields
 
-*   `shift` (`number`, default: `0`)
-    — number to shift headings; can be negative to decrease heading levels
+* `shift` (`number`, default: `0`)
+  — number to shift headings; can be negative to decrease heading levels
 
 ## Types
 
@@ -149,12 +149,12 @@ Use of `rehype-shift-heading` is safe.
 
 ## Related
 
-*   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
-    — add `id`s to headings
-*   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
-    — add links to headings
-*   [`rehype-headings-normalize`](https://github.com/hashbite/rehype-headings-normalize)
-    — normalizes headlines by shifting to a minimum level and closing gaps
+* [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
+  — add `id`s to headings
+* [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
+  — add links to headings
+* [`rehype-headings-normalize`](https://github.com/hashbite/rehype-headings-normalize)
+  — normalizes headlines by shifting to a minimum level and closing gaps
 
 ## Contribute
 
